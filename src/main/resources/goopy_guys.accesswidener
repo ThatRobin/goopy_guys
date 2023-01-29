@@ -1,0 +1,4 @@
+accessWidener	v1	named
+
+accessible    method    net/minecraft/world/World    getEntityLookup    ()Lnet/minecraft/world/entity/EntityLookup;
+accessible    class    net/minecraft/entity/mob/SlimeEntity$SlimeMoveControl

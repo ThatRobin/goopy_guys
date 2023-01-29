@@ -1,31 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "goopy_guys",
+  "version": "0.1.0",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Goopy Guys",
+  "description": "Lets you give some slimey pals some love!",
   "authors": [
-    "Me!"
+    "ThatRobin"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/modid/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.thatrobin.GoopyGuysMain"
+    ],
+    "client": [
+      "io.github.thatrobin.client.GoopyGuysClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "goopy_guys.mixins.json"
   ],
-
+  "accessWidener": "goopy_guys.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric-api": "*",
