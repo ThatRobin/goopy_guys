@@ -12,6 +12,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.EvokerFangsEntity;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SimpleInventory;
@@ -41,8 +42,7 @@ import java.util.UUID;
 
 public class SlimeFriendEntity extends SlimeEntity implements Tameable, Mount, JumpingMount, Saddleable {
 
-    private Color DEFAULT_COLOR = new Color(97, 155, 81);
-    private Color color = DEFAULT_COLOR;
+    private Color color;
     protected float jumpStrength;
     protected boolean jumping;
     protected SimpleInventory items;
@@ -282,13 +282,14 @@ public class SlimeFriendEntity extends SlimeEntity implements Tameable, Mount, J
         if (!this.items.getStack(0).isEmpty()) {
             nbt.put("SaddleItem", this.items.getStack(0).writeNbt(new NbtCompound()));
         }
-        nbt.putInt("Colour", this.color.getRGB());
+        if(this.color != null) {
+            nbt.putInt("Colour", this.color.getRGB());
+        }
     }
 
     public void setColour(Color colour) {
-        if(this.color == DEFAULT_COLOR) {
-            this.color = new Color(255,255,255);
-            this.addColour(colour);
+        if(this.color == null) {
+            this.color = colour;
         } else {
             this.addColour(colour);
         }

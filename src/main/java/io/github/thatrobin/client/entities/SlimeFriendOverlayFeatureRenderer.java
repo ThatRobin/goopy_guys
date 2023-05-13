@@ -44,7 +44,7 @@ public class SlimeFriendOverlayFeatureRenderer<T extends LivingEntity>
             (this.getContextModel()).copyStateTo(this.model);
             this.model.animateModel(livingEntity, f, g, h);
             this.model.setAngles(livingEntity, f, g, j, k, l);
-            Color rgb = slimeFriendEntity.getColour();
+            Color rgb = slimeFriendEntity.getColour() != null ? slimeFriendEntity.getColour() : new Color(255, 255, 255);
             this.model.render(matrixStack, vertexConsumer, i, LivingEntityRenderer.getOverlay(livingEntity, 0.0f), rgb.getRed() / 255f, rgb.getGreen() / 255f, rgb.getBlue() / 255f, 1.0f);
         }
     }

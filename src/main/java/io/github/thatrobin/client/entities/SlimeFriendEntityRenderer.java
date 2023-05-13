@@ -18,6 +18,7 @@ import net.minecraft.util.math.MathHelper;
 public class SlimeFriendEntityRenderer extends MobEntityRenderer<SlimeFriendEntity, SlimeFriendEntityModel<SlimeFriendEntity>> {
 
     private static final Identifier TEXTURE = GoopyGuysMain.identifier("textures/entity/slime/slimefriend.png");
+    private static final Identifier SLIME_TEXTURE = new Identifier("textures/entity/slime/slime.png");
 
     public SlimeFriendEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new SlimeFriendEntityModel<SlimeFriendEntity>(context.getPart(EntityModelLayers.SLIME)), 0.25f);
@@ -43,6 +44,10 @@ public class SlimeFriendEntityRenderer extends MobEntityRenderer<SlimeFriendEnti
 
     @Override
     public Identifier getTexture(SlimeFriendEntity slimeEntity) {
-        return TEXTURE;
+        if(slimeEntity.getColour() != null) {
+            return TEXTURE;
+        } else {
+            return SLIME_TEXTURE;
+        }
     }
 }
